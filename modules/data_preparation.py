@@ -9,24 +9,24 @@ def create_dataloader(
         test_dir:str,
         batch_size:int,
         transform:transforms.Compose,
-        workers:int=NUM_WORKERS,
+        num_workers:int=NUM_WORKERS,
 ):
     train_data = datasets.ImageFolder(train_dir, transform=transform)
     test_data = datasets.ImageFolder(test_dir, transform=transform)
 
     class_names = train_data.classes
 
-    train_loader = DataLoader(
+    train_dataloader = DataLoader(
         train_data,
         batch_size=batch_size,
         shuffle=True,
-        num_workers=workers,
+        num_workers=num_workers,
         pin_memory=True,
     )
-    test_loader = DataLoader(
+    test_dataloader = DataLoader(
         test_data,
         batch_size=batch_size,
         shuffle=False,
-        num_workers=workers,
+        num_workers=num_workers,
         pin_memory=True,
     )
