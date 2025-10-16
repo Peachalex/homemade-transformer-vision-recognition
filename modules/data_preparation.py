@@ -8,7 +8,7 @@ def create_dataloader(
         train_dir:str,
         test_dir:str,
         batch_size:int,
-        transform:transforms.Compose,
+        transform:transforms.Compose  = None,
         num_workers:int=NUM_WORKERS,
 ):
     train_data = datasets.ImageFolder(train_dir, transform=transform)
