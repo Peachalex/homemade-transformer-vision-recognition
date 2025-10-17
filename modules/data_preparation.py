@@ -4,12 +4,12 @@ from torch.utils.data import DataLoader
 
 NUM_WORKERS = os.cpu_count()
 
-def create_dataloader(
+def create_dataloaders(
         train_dir:str,
         test_dir:str,
         batch_size:int = 32,
         transform:transforms.Compose  = None,
-        num_workers:int=NUM_WORKERS,
+        num_workers:int = NUM_WORKERS,
 ):
     train_data = datasets.ImageFolder(train_dir, transform=transform)
     test_data = datasets.ImageFolder(test_dir, transform=transform)
